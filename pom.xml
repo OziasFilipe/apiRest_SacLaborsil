@@ -14,7 +14,7 @@
 	<name>SacApiRest</name>
 	<description>teste de banco de dados</description>
 	<properties>
-		<!--  <java.version>11</java.version> -->
+		<java.version>11</java.version>
 	</properties>
 	<dependencies>
 	
