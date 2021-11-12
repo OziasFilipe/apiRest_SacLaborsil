@@ -95,124 +95,170 @@ public class UserClient {
 		@Column(name = "situação", nullable = false)
 		private String situacao;
 		
-		
+		@Column(name = "cliente", nullable = false)
+		private String cliente;
+
 		public Long getId() {
 			return id;
 		}
+
 		public void setId(Long id) {
 			this.id = id;
 		}
+
 		public Long getCnpj() {
 			return cnpj;
 		}
+
 		public void setCnpj(Long cnpj) {
 			this.cnpj = cnpj;
 		}
+
 		public String getEndereco() {
 			return endereco;
 		}
+
 		public void setEndereco(String endereco) {
 			this.endereco = endereco;
 		}
+
 		public String getEmail() {
 			return email;
 		}
+
 		public void setEmail(String email) {
 			this.email = email;
 		}
+
 		public String getRepresentantePrimary() {
 			return representantePrimary;
 		}
+
 		public void setRepresentantePrimary(String representantePrimary) {
 			this.representantePrimary = representantePrimary;
 		}
+
 		public String getRepresentanteSecundary() {
 			return representanteSecundary;
 		}
+
 		public void setRepresentanteSecundary(String representanteSecundary) {
 			this.representanteSecundary = representanteSecundary;
 		}
+
 		public long getNotaFiscal() {
 			return notaFiscal;
 		}
+
 		public void setNotaFiscal(long notaFiscal) {
 			this.notaFiscal = notaFiscal;
 		}
+
 		public String getTipochamada() {
 			return tipochamada;
 		}
+
 		public void setTipochamada(String tipochamada) {
 			this.tipochamada = tipochamada;
 		}
+
 		public String getDge() {
 			return dge;
 		}
+
 		public void setDge(String dge) {
 			this.dge = dge;
 		}
+
 		public long getTelefone() {
 			return telefone;
 		}
+
 		public void setTelefone(long telefone) {
 			this.telefone = telefone;
 		}
+
 		public String getBairro() {
 			return bairro;
 		}
+
 		public void setBairro(String bairro) {
 			this.bairro = bairro;
 		}
+
 		public long getCep() {
 			return cep;
 		}
+
 		public void setCep(long cep) {
 			this.cep = cep;
 		}
+
 		public String getObservacao() {
 			return observacao;
 		}
+
 		public void setObservacao(String observacao) {
 			this.observacao = observacao;
 		}
+
 		public long getCodProtocolo() {
 			return codProtocolo;
 		}
+
 		public void setCodProtocolo(long codProtocolo) {
 			this.codProtocolo = codProtocolo;
 		}
+
 		public long getTelefoneSecundary() {
 			return telefoneSecundary;
 		}
+
 		public void setTelefoneSecundary(long telefoneSecundary) {
 			this.telefoneSecundary = telefoneSecundary;
 		}
+
 		public String getCidade() {
 			return cidade;
 		}
+
 		public void setCidade(String cidade) {
 			this.cidade = cidade;
 		}
+
 		public String getSupervisor() {
 			return supervisor;
 		}
+
 		public void setSupervisor(String supervisor) {
 			this.supervisor = supervisor;
 		}
+
 		public String getUF() {
 			return UF;
 		}
+
 		public void setUF(String uF) {
 			UF = uF;
 		}
-		public String getSituacao() {
+
+		public String isSituacao() {
 			return situacao;
 		}
+
 		public void setSituacao(String situacao) {
 			this.situacao = situacao;
 		}
-		
-		
-		
 
+		public String getCliente() {
+			return cliente;
+		}
 
+		public void setCliente(String cliente) {
+			this.cliente = cliente;
+		}
+		
+		
+		
+		
 }

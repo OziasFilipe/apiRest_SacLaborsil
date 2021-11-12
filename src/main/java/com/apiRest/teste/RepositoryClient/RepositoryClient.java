@@ -16,6 +16,14 @@ public interface RepositoryClient extends JpaRepository<UserClient,Long> {
 	 @Query("FROM UserClient WHERE cnpj = ?1")
 	    List<UserClient> findByCnpj(long cnpj);
 	 
-	 
+	 @Query("FROM UserClient WHERE codProtocolo = ?1")
+ 		List<UserClient> findByProtocolo(long codProtocolo);
 	
+	 @Query("FROM UserClient WHERE notaFiscal = ?1")
+	 	List<UserClient> findByNotaFiscal(long notaFiscal);
+	 
+	 @Query("FROM UserClient WHERE cliente = ?1")
+	 	List<UserClient> findByNomeCliente(String cliente);
+	 
+	 
 }
