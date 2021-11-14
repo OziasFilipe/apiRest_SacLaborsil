@@ -57,7 +57,7 @@ public class UserClient {
 		private String representanteSecundary;
 		
 		@Column(name = "notaFiscal", nullable = false)
-		private long notaFiscal;
+		private long notafiscal;
 		
 		@Column(name = "tipoDeChamada", nullable = false)
 		private String tipochamada;
@@ -147,11 +147,11 @@ public class UserClient {
 		}
 
 		public long getNotaFiscal() {
-			return notaFiscal;
+			return notafiscal;
 		}
 
 		public void setNotaFiscal(long notaFiscal) {
-			this.notaFiscal = notaFiscal;
+			this.notafiscal = notaFiscal;
 		}
 
 		public String getTipochamada() {

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.apiRest.teste.RepositoryClient.RepositoryClient;
@@ -24,7 +25,9 @@ import io.swagger.annotations.ApiOperation;
 @Api(value="Api Cliente")
 @CrossOrigin(origins="*")
 public class ControllerClient {
-
+	//Auxiliar 
+	//cliente?clienteuser=oziasfilipe
+	
 	@Autowired 
 	private RepositoryClient repositorio;
 	
@@ -33,20 +36,50 @@ public class ControllerClient {
 		
 		@GetMapping("cliente/{Id}")
 		@ApiOperation(value="Buscar elemento através do identificador na (URL)")
-		public UserClient BuscarAtravezDoid(@PathVariable(value="Id")long id) {
+		public UserClient getById(@PathVariable(value="Id")long id) {
 			return repositorio.findById(id);
 		}
 		
-		@GetMapping("cnpj")
+		@GetMapping("cnpj/{Cnpj}")
 		@ApiOperation(value = "Buscar elemento através do CNPJ")
-		public List<UserClient> getByCnpj(long cnpj){
+		public List<UserClient> getByCnpj(@PathVariable(value="Cnpj") long cnpj){
 			return repositorio.findByCnpj(cnpj);
 		}
 		
+		
 		@GetMapping("cliente")
 		@ApiOperation(value = "Buscar elemento através do nome do cliente")
-		public List<UserClient> getBycliente(String cliente){
+		public List<UserClient> getBycliente(@RequestParam(value="clienteuser") String cliente){
 			return repositorio.findByNomeCliente(cliente);
+		}
+
+		@GetMapping("protocolo/{CodProtocolo}")
+		@ApiOperation(value = "Buscar atraves do protocolo")
+		public List<UserClient> getByProtocolo(@PathVariable(value="CodProtocolo")long codProtocolo){
+			return repositorio.findByProtocolo(codProtocolo);
+		}
+		
+		@GetMapping("notafiscal/{notafiscal}")
+		@ApiOperation(value = "Buscar atraves da numeração da nota fiscal")
+	public List<UserClient> getByNotaFiscal(@PathVariable(value="notafiscal")long notaFiscal){
+			return repositorio.findByNotaFiscal(notaFiscal);
+		}
+		
+		@GetMapping("email")
+		@ApiOperation(value = "Buscar através do email")
+		public List<UserClient> getByEmail(@RequestParam(value="email") String email){
+			return repositorio.findByEmail(email);
+		}
+		
+		@GetMapping("representante")
+		public List<UserClient>getByRepresentante(@RequestParam(value="representanteprimary")String representantePrimary){
+			return repositorio.findByRepresentante(representantePrimary);
+		};
+		
+		@GetMapping("situacao")
+		@ApiOperation(value = "Buscar através da situação")
+		public List<UserClient> getBySitucao(@RequestParam(value="situacao")String situacao){
+			return repositorio.findBySituacao(situacao);
 		}
 		
 		@GetMapping("clientAll")
@@ -54,22 +87,6 @@ public class ControllerClient {
 		public List<UserClient> getAll(){
 			return repositorio.findAll();
 		}
-		
-	
-		
-		@GetMapping("protocolo")
-		@ApiOperation(value = "Buscar atraves do protocolo")
-		public List<UserClient> getByProtocolo(long codProtocolo){
-			return repositorio.findByProtocolo(codProtocolo);
-		}
-		
-		@GetMapping("notafiscal")
-		@ApiOperation(value = "Buscar atraves do numero da nota fiscal")
-		public List<UserClient> getByNotaFiscal(long notafiscal){
-			return repositorio.findByNotaFiscal(notafiscal);
-		}
-		
-		
 		
 		/**Metodo de Inserção de Elementos (POST)*/
 		/**                                     **/
