@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import com.apiRest.teste.modelClient.UserClient;
+import com.apiRest.teste.modelClient.UserUsuario;
 
 @Repository
 public interface RepositoryClient extends JpaRepository<UserClient,Long> {
@@ -33,4 +34,14 @@ public interface RepositoryClient extends JpaRepository<UserClient,Long> {
 	 
 	 @Query("FROM UserClient WHERE situacao = ?1")
 	 	List<UserClient> findBySituacao(String situacao);
+	 
+	 @Query("FROM UserUsuario WHERE usuario =  ?1")
+	 	List<UserUsuario> findByUsuario(String usuario);
+	 
+	 @Query("FROM UserUsuario WHERE password = ?1")
+	 	List<UserUsuario> findBypassword(String password);
+
+	UserUsuario save(UserUsuario client);
+
+
 }

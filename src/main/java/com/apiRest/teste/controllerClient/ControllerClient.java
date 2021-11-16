@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.apiRest.teste.RepositoryClient.RepositoryClient;
 import com.apiRest.teste.modelClient.UserClient;
+import com.apiRest.teste.modelClient.UserUsuario;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -78,7 +79,7 @@ public class ControllerClient {
 		
 		@GetMapping("situacao")
 		@ApiOperation(value = "Buscar através da situação")
-		public List<UserClient> getBySitucao(@RequestParam(value="")String situacao){
+		public List<UserClient> getBySitucao(@RequestParam(value="situacao")String situacao){
 			return repositorio.findBySituacao(situacao);
 		}
 		
@@ -88,12 +89,27 @@ public class ControllerClient {
 			return repositorio.findAll();
 		}
 		
+		
+		/**Metodo do Usuario (GET)*/
+		
+		@GetMapping("usuario")
+		@ApiOperation(value = "Buscar o usuario")
+		public List<UserUsuario> getByUsuario(@RequestParam (value="usuario")String usuario){
+			return repositorio.findByUsuario(usuario);
+		}
+		
 		/**Metodo de Inserção de Elementos (POST)*/
 		/**                                     **/
 		
-		@PostMapping("")
+		@PostMapping("cliente")
 		@ApiOperation(value="Inserir coleção de dados no banco")
 		public UserClient InsertClient(@RequestBody UserClient client) {
+			return repositorio.save(client);
+		}
+		
+		@PostMapping("usuario")
+		@ApiOperation(value="cadastrar usuario")
+		public UserUsuario InsertUsuario(@RequestBody UserUsuario client) {
 			return repositorio.save(client);
 		}
 		
@@ -104,6 +120,8 @@ public class ControllerClient {
 		public  UserClient UpdateClient(@RequestBody UserClient client) {
 			return repositorio.save(client);
 		}
+		
+		
 		
 		/**Metodo de deletar Elementos (DELETE)*/
 		/**                                   **/

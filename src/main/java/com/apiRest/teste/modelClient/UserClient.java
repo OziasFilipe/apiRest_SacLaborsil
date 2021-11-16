@@ -97,6 +97,8 @@ public class UserClient {
 		
 		@Column(name = "cliente", nullable = false)
 		private String cliente;
+		
+		
 
 		public Long getId() {
 			return id;
