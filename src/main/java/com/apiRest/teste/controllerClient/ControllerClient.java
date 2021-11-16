@@ -78,7 +78,7 @@ public class ControllerClient {
 		
 		@GetMapping("situacao")
 		@ApiOperation(value = "Buscar através da situação")
-		public List<UserClient> getBySitucao(@RequestParam(value="situacao")String situacao){
+		public List<UserClient> getBySitucao(@RequestParam(value="")String situacao){
 			return repositorio.findBySituacao(situacao);
 		}
 		
